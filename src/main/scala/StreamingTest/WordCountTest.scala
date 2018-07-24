@@ -23,7 +23,7 @@ object WordCountTest {
     // 定义Stream类型,这里使用TCP套接字作为文本流
     // 程序监听本地(localhost)端口,收到数据流后存入内存
     // 内存不足则存入硬盘
-    val lines = ssc.socketTextStream("localhost", 9999, StorageLevel.MEMORY_AND_DISK_SER_2)
+    val lines = ssc.socketTextStream("192.168.56.101", 9999, StorageLevel.MEMORY_AND_DISK_SER_2)
 
     // 对获取的数据进行分割,得到DStream
     val words = lines.flatMap(_.split(" "))

@@ -12,7 +12,7 @@ import org.apache.kafka.clients.producer.KafkaProducer
   */
 object KafkaProducerTest {
   def main(args: Array[String]): Unit = {
-    val brokers = "172.16.60.186:9092"
+    val brokers = "192.168.56.171:9092"
     val topic = "test"
 
     val props = new Properties()
@@ -29,6 +29,7 @@ object KafkaProducerTest {
 
     for (i <- 0 to 10) {
       producer.send(new ProducerRecord(topic, "key-" + i, "64.242.88.10 - - [07/Mar/2004:16:05:49 -0800] \"GET /twiki/bin/edit/Main/Double_bounce_sender?topicparent=Main.ConfigurationVariables HTTP/1.1\" 401 12846"))
+      System.out.println(System.currentTimeMillis())
       Thread.sleep(3000)
     }
 

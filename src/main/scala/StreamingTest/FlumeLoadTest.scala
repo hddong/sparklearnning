@@ -4,7 +4,7 @@ import java.net.InetSocketAddress
 
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.streaming.flume.FlumeUtils
+//import org.apache.spark.streaming.flume.FlumeUtils
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 object FlumeLoadTest {
@@ -18,9 +18,9 @@ object FlumeLoadTest {
 
     val ssc = new StreamingContext(spark.sparkContext, Seconds(2))
 
-    val flumeStream = FlumeUtils.createStream(ssc, "localhost", 8988)
-
-    flumeStream.print(10)
+//    val flumeStream = FlumeUtils.createStream(ssc, "localhost", 8988)
+//
+//    flumeStream.print(10)
 
     ssc.start()
     ssc.awaitTermination()

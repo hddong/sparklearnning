@@ -13,7 +13,8 @@ import scala.collection.JavaConverters._  /* 隐式转换 将java collection转�
   */
 object KafkaConsumerTest {
 
-  def ZK_CONN = "172.16.60.186:2181"
+  def ZK_CONN = "192.168.56.171:2181"
+  def BOOTSTRAP = "192.168.56.171:9092"
   def GROUP_ID = "test_scala_consumer_group"
   def TOPIC = "test"
 
@@ -35,7 +36,7 @@ object KafkaConsumerTest {
 
   def kafkaConfig(): Properties = {
     val props = new Properties()
-    props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG /**/, "172.16.60.186:9092")
+    props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG /**/, BOOTSTRAP)
     props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG /**/, classOf[StringDeserializer].getName)
     props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, classOf[StringDeserializer].getName)
     props.put(ConsumerConfig.GROUP_ID_CONFIG, GROUP_ID)

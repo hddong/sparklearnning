@@ -3,9 +3,9 @@ package StreamingTest
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.streaming.kafka010.KafkaUtils
-import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
-import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
+//import org.apache.spark.streaming.kafka010.KafkaUtils
+//import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
+//import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 object KafkaGetTest {
@@ -33,10 +33,10 @@ object KafkaGetTest {
     )
     val topics = Array("test")
 
-    val kafkaStream = KafkaUtils
-      .createDirectStream(ssc, PreferConsistent, Subscribe[String, String](topics, kafkaParams))
-    val rest = kafkaStream.map(_.value)
-    rest.print(10)
+//    val kafkaStream = KafkaUtils
+//      .createDirectStream(ssc, PreferConsistent, Subscribe[String, String](topics, kafkaParams))
+//    val rest = kafkaStream.map(_.value)
+//    rest.print(10)
     /**
       * kafka 0.8版本写法
 
